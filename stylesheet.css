@@ -8,3 +8,9 @@ div {
 	color:blue;
 	
 }
+p {
+	font-family: Verdana;
+	font-size: 16px;
+	color: green;
+	background-color: yellow;
+}
