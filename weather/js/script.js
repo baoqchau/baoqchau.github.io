@@ -8,18 +8,18 @@ function returnPosition(position) {
     url =  "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude
              +	"&lon=" + position.coords.longitude + "appid=" + weatherAPIKey ;  
 	console.log(position.coords.latitude);
-	
+	console.log(url);
+	var xmlhttp = new XMLHttpRequest(); // get data from openweathermap.org
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var myArr = JSON.parse(xmlhttp.responseText);
+			console.log(myArr.name);
+		  //  myFunction(myArr);
+		}
+	}
 }
 
-console.log(url);
-var xmlhttp = new XMLHttpRequest(); // get data from openweathermap.org
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
 
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var myArr = JSON.parse(xmlhttp.responseText);
-		console.log(myArr.name);
-      //  myFunction(myArr);
-    }
-}
