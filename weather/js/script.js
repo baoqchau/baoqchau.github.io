@@ -1,5 +1,4 @@
 var weatherAPIKey = "2772656d14bf2b82c3acd03ad1fd7062";
-url = "";
 
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(returnPosition);
