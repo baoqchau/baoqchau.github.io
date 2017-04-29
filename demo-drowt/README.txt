@@ -31,3 +31,5 @@ Credits:
 		Misc. Sass functions (@HugoGiraudel)
 		Skel (skel.io)
 		Scrollex (github.com/ajlkn/jquery.scrollex)
+http://jquery.malsup.com/cycle2/
+

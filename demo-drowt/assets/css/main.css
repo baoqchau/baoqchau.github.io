@@ -26,6 +26,11 @@
 		line-height: 1;
 	}
 
+	#featured {
+		height: 50%;
+		width: 85%;
+	}
+	
 	ol, ul {
 		list-style: none;
 	}
