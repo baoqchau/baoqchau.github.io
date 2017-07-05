@@ -1224,3 +1224,8 @@
 			body.is-touch .poptrox-popup .closer {
 				opacity: 1.0 !important;
 			}
+
+.intro-text {
+	color: #446CB3;	
+	font-size: 30px;
+}
