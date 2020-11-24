@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "Educated"
+date:   2020-11-23 21:10:19 -0800
+tags: books educated review
+categories: jekyll update
+---
+{:refdef: style="text-align: center;"}
+![Educated by Tara Westover](/assets/img/Educated_book_cover.png)
+{: refdef}
+
+   When I was young, I remembered my parents told me that I should
+study well in school, or I would end up on the street and sell lottery
+tickets. In Vietnam, we often associate people working on the street as
+"uneducated" and most parents want their children to have a brighter future by
+forcing them to study a lot. My family also has a teaching tradition, so my
+sister and I received a lot of pressure to do well in school. Luckily, both of
+us got accepted into good colleges after education.
+
+When I was in high school, I went to a study abroad conference at a big hotel
+in my city. Most of the brochure were about flashy colleges, gorgeous students,
+fancy dining hall and the best of the world's education. In my mind, I imagined
+that all American people were so beautiful and they all went to pretty colleges
+like the advertised ones. I would never think that the U.S can have people that
+are "uneducated".
+
+Not until I read "Educated" by Tara Westover.
+
+In "Educated", Tara wrote about her experience growing up in a rural family in
+Idaho. Her dad worked at a nearby junkyard scrapping metals, while her mom 
+stayed at home making herbal recipes as well as midwifing other families in the
+area. The family didn't believe in hospital, so Tara was born at home and didn't
+have her birth certificate until later. She spent most of her childhood helping
+her dad with scrapping metals and her only source of knowledge was from some old
+books her mom kept for homeschooling.  
+
+The most amazing thing to me after reading the book is the power of education in
+transforming a person's life, like Tara's. If her brother didn't encourage her
+to go to school and study, she would probably end up like her mother. Thanks to
+education, she realized how lunatic her dad was when she was young. Thanks to
+education, she broadened her mind and knowledge. But it's also education that
+forces her to leave her family since they no longer share the same view with 
+her, in which she bravely accepted.
+
+Through Tara's memoir, I realize how lucky I was to be educated. Some people may
+argue that you don't need an education to be success in life, but I don't agree
+with that. Yes, you may not need an education to be rich or wealthy, but by
+being educated, your mind will be transformed. Your point of view will change
+significantly the more knowledge you know, which is proved beautifully by Tara's
+own experience.
