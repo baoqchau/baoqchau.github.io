@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Git commands I use at work | The Clueless Engineer</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Git commands I use at work" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Git is a popular version control software used by a lot of tech companies (Yes, there are still companies using SVN). If you don’t know Git, here’s a quick tutorial to get started." />
+<meta property="og:description" content="Git is a popular version control software used by a lot of tech companies (Yes, there are still companies using SVN). If you don’t know Git, here’s a quick tutorial to get started." />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2021/01/03/git-commands.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2021/01/03/git-commands.html" />
+<meta property="og:site_name" content="The Clueless Engineer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-03T20:26:00-08:00" />
+<script type="application/ld+json">
+{"description":"Git is a popular version control software used by a lot of tech companies (Yes, there are still companies using SVN). If you don’t know Git, here’s a quick tutorial to get started.","headline":"Git commands I use at work","dateModified":"2021-01-03T20:26:00-08:00","datePublished":"2021-01-03T20:26:00-08:00","@type":"BlogPosting","url":"http://localhost:4000/jekyll/update/2021/01/03/git-commands.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2021/01/03/git-commands.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Clueless Engineer" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Clueless Engineer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Git commands I use at work</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-01-03T20:26:00-08:00" itemprop="datePublished">Jan 3, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Git is a popular version control software used by a lot of tech companies (Yes, there are still companies using <a href="https://subversion.apache.org/">SVN</a>).
+If you don’t know Git, here’s a quick <a href="https://www.atlassian.com/git">tutorial</a> to get started.</p>
+
+<p>In this post, I will show you the Git commands I use everyday at work. In fact, this is the same material that I teach
+new hires when they join my company. Let’s get started.</p>
+
+<h1 id="1-git-commit---amend---no-edit">1. <code class="language-plaintext highlighter-rouge">git commit --amend [--no-edit]</code></h1>
+<p>This is an option of the regular <code class="language-plaintext highlighter-rouge">git commit</code> command. Let’s say that you just commited some changes like this</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 3b867ef53b9027d3125ecb84437827b5e4d476f1
+Author: Bao Chau &lt;chauquocbao0907@gmail.com&gt;
+Date:   Sun Jan 3 20:55:15 2021 -0800
+
+    add new blog post
+</code></pre></div></div>
+
+<p>And then, you remember that you forget to add another file to the same commit. Maybe you want to add more details to the git commit.
+Either way, you want to make some change to <em>the latest git commit</em>. In that case, you can use the command <code class="language-plaintext highlighter-rouge">git commit --amend</code>.</p>
+
+<p>After executing that command, you should see a text editor pops up and ask you to update the commit. If you use vi or vim like me, you should see 
+something like this on your terminal:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add new blog post               
+                                                                                  
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit. 
+#                                                                              
+# Date:      Sun Jan 3 20:55:15 2021 -0800
+</code></pre></div></div>
+<p>You can now update the commit message, save it and Git will update your commit with the new message.</p>
+
+<p>If you’d like to add new files in the commit, make sure you <code class="language-plaintext highlighter-rouge">git add</code> your files first. If then you don’t want to change your commit
+message, you can add the option <code class="language-plaintext highlighter-rouge">--no-edit</code> (<code class="language-plaintext highlighter-rouge">git commit --amend --no-edit</code>) and Git will update your latest commit with the new files.</p>
+
+<p>Pretty convenient, right? I use this quite often at work.</p>
+
+<h1 id="2-git-commit---fixup">2. <code class="language-plaintext highlighter-rouge">git commit --fixup</code></h1>
+<p>This is another option of <code class="language-plaintext highlighter-rouge">git commit</code> command that I use heavily in my work. Here’s a popular scenario I run into at work:</p>
+
+<p>I created a PR with 10 commits. My teammate reviewed it, gave some feedbacks and I went back and updated my PR. However, most of
+the time I will only want to update the code, not the commit itself. As a result, I want a quick way to update the code in my commit
+without changing the commit message. <code class="language-plaintext highlighter-rouge">Fixup</code> allows me to do that work flawlessly.</p>
+
+<p>So how can you use it? Let’s say you have 4 commits like this:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 2e8a77a2b45a75576f6eecde9772be7fade10e15 <span class="o">(</span>HEAD -&gt; addGitCommandBlogpost<span class="o">)</span>
+Author: Bao Chau &lt;chauquocbao0907@gmail.com&gt;
+Date:   Tue Jan 5 21:46:37 2021 <span class="nt">-0800</span>
+
+    commit 4
+
+commit e2b138c242fb61b5e420f5f09b5d9ab02ed33d2e
+Author: Bao Chau &lt;chauquocbao0907@gmail.com&gt;
+Date:   Tue Jan 5 21:46:26 2021 <span class="nt">-0800</span>
+
+    commit 3
+
+commit bd502f8eea7b4bc29ec37295da81ded81c0e48c9
+Author: Bao Chau &lt;chauquocbao0907@gmail.com&gt;
+Date:   Tue Jan 5 21:46:14 2021 <span class="nt">-0800</span>
+
+    commit 2
+
+commit 716edf4b19ec238236ad59ed8a355cce952c7412
+Author: Bao Chau &lt;chauquocbao0907@gmail.com&gt;
+Date:   Tue Jan 5 21:46:04 2021 <span class="nt">-0800</span>
+
+    commit 1
+</code></pre></div></div>
+<p>Now let’s say you want to add <code class="language-plaintext highlighter-rouge">hello.txt</code> to commit 1 and <code class="language-plaintext highlighter-rouge">world.txt</code> to commit 3. 
+For commit 1, first you need to run <code class="language-plaintext highlighter-rouge">git add hello.txt</code>.</p>
+
+<p>And then you can run <strong><code class="language-plaintext highlighter-rouge">git commit --fixup &lt;SHA of the commit you want to fixup&gt;</code></strong>. In this case, it’s <code class="language-plaintext highlighter-rouge">716edf4b19ec2</code>.</p>
+
+<p>Note: You don’t need the whole SHA for the fixup. The first 10 characters should be good enough.</p>
+
+<p>So if you do everything’s correctly, here’s what you should see:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bao@bao-linux:~/code/baoqchau.github.io<span class="nv">$ </span>git commit <span class="nt">--fixup</span> 716edf4b19ec2
+<span class="o">[</span>addGitCommandBlogpost f9ff455] fixup! commit 1
+ 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>
+ create mode 100644 hello.txt
+</code></pre></div></div>
+<p>After that, you can follow similar steps for commit 3.</p>
+
+<p>So now you have 2 <code class="language-plaintext highlighter-rouge">fixup</code> commits, you will want to find a way to “squash” them into the commits you’d like. You can do
+ that by interactive rebasing, or <code class="language-plaintext highlighter-rouge">git rebase -i</code> command. In this case, the command we use is <code class="language-plaintext highlighter-rouge">git rebase -i --autosquash &lt;SHA of commit you want to rebase from&gt;</code>.</p>
+
+<p><strong>Quick tips</strong>: For rebasing after fixup, the fastest way I have always done is copying the SHA of the commit you’d like to fixup
+ that’s furthest from the top when you do <code class="language-plaintext highlighter-rouge">git log</code>, and add a <code class="language-plaintext highlighter-rouge">~</code> next to it, i.e go one commit below that.</p>
+
+<p>For our example, we want to fixup commit 1 and commit 3, and since commit 1 is furthest, we will copy its SHA and add a <code class="language-plaintext highlighter-rouge">~</code>, or 
+  the command we will use is <code class="language-plaintext highlighter-rouge">git rebase -i --autosquash 716edf4b19ec2~</code>.</p>
+
+<p>If you do it correctly, you should see this interactive view in your text editor:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  pick 716edf4 commit 1                                                            
+  pick f9ff455 fixup! commit 1                                                     
+  pick bd502f8 commit 2                                                            
+  pick e2b138c commit 3                                                            
+  pick f7fcd1d fixup! commit 3   
+  pick 2e8a77a commit 4                                                            
+
+  <span class="c"># Rebase 25a847b..9558f48 onto 25a847b (7 commands)                              </span>
+  <span class="c">#                                                                                </span>
+  <span class="c"># Commands:                                                                      </span>
+  <span class="c"># p, pick = use commit                                                           </span>
+  <span class="c"># r, reword = use commit, but edit the commit message                            </span>
+  <span class="c"># e, edit = use commit, but stop for amending                                    </span>
+  <span class="c"># s, squash = use commit, but meld into previous commit                          </span>
+  <span class="c"># f, fixup = like "squash", but discard this commit's log message                </span>
+  <span class="c"># x, exec = run command (the rest of the line) using shell                       </span>
+  <span class="c"># d, drop = remove commit                                                        </span>
+  <span class="c">#                                                                                </span>
+  <span class="c"># These lines can be re-ordered; they are executed from top to bottom.           </span>
+  <span class="c">#                                                                                </span>
+  <span class="c"># If you remove a line here THAT COMMIT WILL BE LOST.                            </span>
+  <span class="c">#                                                                                </span>
+  <span class="c"># However, if you remove everything, the rebase will be aborted.                 </span>
+  <span class="c">#                                                                                </span>
+  <span class="c"># Note that empty commits are commented out</span>
+</code></pre></div></div>
+<p>As you can see, Git know to reorder your commits so that the fixup commit will be below the one that needs to be fixup-ed. If you check it
+  and everything’s good, you can save the file and Git will apply the change. This process can save you a lot of time!!</p>
+
+<p>Through this tutorial, I hope it will help you do your work faster. If you’d like more useful tips I learn at work, let me know by sending me an email :)</p>
+
+  </div><a class="u-url" href="/jekyll/update/2021/01/03/git-commands.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The Clueless Engineer</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">The Clueless Engineer</li><li><a class="u-email" href="mailto:chauquocbao0907@gmail.com">chauquocbao0907@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/baoqchau"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">baoqchau</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

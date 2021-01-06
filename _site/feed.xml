@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-23T22:28:05-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Clueless Engineer</title><subtitle></subtitle><entry><title type="html">Educated</title><link href="http://localhost:4000/jekyll/update/2020/11/23/educated.html" rel="alternate" type="text/html" title="Educated" /><published>2020-11-23T21:10:19-08:00</published><updated>2020-11-23T21:10:19-08:00</updated><id>http://localhost:4000/jekyll/update/2020/11/23/educated</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/11/23/educated.html">&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/assets/img/Educated_book_cover.png&quot; alt=&quot;Educated by Tara Westover&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-05T22:37:58-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Clueless Engineer</title><subtitle></subtitle><entry><title type="html">Git commands I use at work</title><link href="http://localhost:4000/jekyll/update/2021/01/03/git-commands.html" rel="alternate" type="text/html" title="Git commands I use at work" /><published>2021-01-03T20:26:00-08:00</published><updated>2021-01-03T20:26:00-08:00</updated><id>http://localhost:4000/jekyll/update/2021/01/03/git-commands</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/01/03/git-commands.html">&lt;p&gt;Git is a popular version control software used by a lot of tech companies (Yes, there are still companies using &lt;a href=&quot;https://subversion.apache.org/&quot;&gt;SVN&lt;/a&gt;).
+If you don’t know Git, here’s a quick &lt;a href=&quot;https://www.atlassian.com/git&quot;&gt;tutorial&lt;/a&gt; to get started.&lt;/p&gt;
+
+&lt;p&gt;In this post, I will show you the Git commands I use everyday at work. In fact, this is the same material that I teach
+new hires when they join my company. Let’s get started.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-git-commit---amend---no-edit&quot;&gt;1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit --amend [--no-edit]&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;This is an option of the regular &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit&lt;/code&gt; command. Let’s say that you just commited some changes like this&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit 3b867ef53b9027d3125ecb84437827b5e4d476f1
+Author: Bao Chau &amp;lt;chauquocbao0907@gmail.com&amp;gt;
+Date:   Sun Jan 3 20:55:15 2021 -0800
+
+    add new blog post
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And then, you remember that you forget to add another file to the same commit. Maybe you want to add more details to the git commit.
+Either way, you want to make some change to &lt;em&gt;the latest git commit&lt;/em&gt;. In that case, you can use the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit --amend&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After executing that command, you should see a text editor pops up and ask you to update the commit. If you use vi or vim like me, you should see 
+something like this on your terminal:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;add new blog post               
+                                                                                  
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit. 
+#                                                                              
+# Date:      Sun Jan 3 20:55:15 2021 -0800
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You can now update the commit message, save it and Git will update your commit with the new message.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to add new files in the commit, make sure you &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add&lt;/code&gt; your files first. If then you don’t want to change your commit
+message, you can add the option &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--no-edit&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit --amend --no-edit&lt;/code&gt;) and Git will update your latest commit with the new files.&lt;/p&gt;
+
+&lt;p&gt;Pretty convenient, right? I use this quite often at work.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-git-commit---fixup&quot;&gt;2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit --fixup&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;This is another option of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit&lt;/code&gt; command that I use heavily in my work. Here’s a popular scenario I run into at work:&lt;/p&gt;
+
+&lt;p&gt;I created a PR with 10 commits. My teammate reviewed it, gave some feedbacks and I went back and updated my PR. However, most of
+the time I will only want to update the code, not the commit itself. As a result, I want a quick way to update the code in my commit
+without changing the commit message. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fixup&lt;/code&gt; allows me to do that work flawlessly.&lt;/p&gt;
+
+&lt;p&gt;So how can you use it? Let’s say you have 4 commits like this:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit 2e8a77a2b45a75576f6eecde9772be7fade10e15 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;HEAD -&amp;gt; addGitCommandBlogpost&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Author: Bao Chau &amp;lt;chauquocbao0907@gmail.com&amp;gt;
+Date:   Tue Jan 5 21:46:37 2021 &lt;span class=&quot;nt&quot;&gt;-0800&lt;/span&gt;
+
+    commit 4
+
+commit e2b138c242fb61b5e420f5f09b5d9ab02ed33d2e
+Author: Bao Chau &amp;lt;chauquocbao0907@gmail.com&amp;gt;
+Date:   Tue Jan 5 21:46:26 2021 &lt;span class=&quot;nt&quot;&gt;-0800&lt;/span&gt;
+
+    commit 3
+
+commit bd502f8eea7b4bc29ec37295da81ded81c0e48c9
+Author: Bao Chau &amp;lt;chauquocbao0907@gmail.com&amp;gt;
+Date:   Tue Jan 5 21:46:14 2021 &lt;span class=&quot;nt&quot;&gt;-0800&lt;/span&gt;
+
+    commit 2
+
+commit 716edf4b19ec238236ad59ed8a355cce952c7412
+Author: Bao Chau &amp;lt;chauquocbao0907@gmail.com&amp;gt;
+Date:   Tue Jan 5 21:46:04 2021 &lt;span class=&quot;nt&quot;&gt;-0800&lt;/span&gt;
+
+    commit 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now let’s say you want to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello.txt&lt;/code&gt; to commit 1 and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;world.txt&lt;/code&gt; to commit 3. 
+For commit 1, first you need to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add hello.txt&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;And then you can run &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit --fixup &amp;lt;SHA of the commit you want to fixup&amp;gt;&lt;/code&gt;&lt;/strong&gt;. In this case, it’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;716edf4b19ec2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: You don’t need the whole SHA for the fixup. The first 10 characters should be good enough.&lt;/p&gt;
+
+&lt;p&gt;So if you do everything’s correctly, here’s what you should see:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bao@bao-linux:~/code/baoqchau.github.io&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;--fixup&lt;/span&gt; 716edf4b19ec2
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;addGitCommandBlogpost f9ff455] fixup! commit 1
+ 1 file changed, 1 insertion&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ create mode 100644 hello.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;After that, you can follow similar steps for commit 3.&lt;/p&gt;
+
+&lt;p&gt;So now you have 2 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fixup&lt;/code&gt; commits, you will want to find a way to “squash” them into the commits you’d like. You can do
+ that by interactive rebasing, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; command. In this case, the command we use is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i --autosquash &amp;lt;SHA of commit you want to rebase from&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Quick tips&lt;/strong&gt;: For rebasing after fixup, the fastest way I have always done is copying the SHA of the commit you’d like to fixup
+ that’s furthest from the top when you do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log&lt;/code&gt;, and add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&lt;/code&gt; next to it, i.e go one commit below that.&lt;/p&gt;
+
+&lt;p&gt;For our example, we want to fixup commit 1 and commit 3, and since commit 1 is furthest, we will copy its SHA and add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&lt;/code&gt;, or 
+  the command we will use is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i --autosquash 716edf4b19ec2~&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you do it correctly, you should see this interactive view in your text editor:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pick 716edf4 commit 1                                                            
+  pick f9ff455 fixup! commit 1                                                     
+  pick bd502f8 commit 2                                                            
+  pick e2b138c commit 3                                                            
+  pick f7fcd1d fixup! commit 3   
+  pick 2e8a77a commit 4                                                            
+
+  &lt;span class=&quot;c&quot;&gt;# Rebase 25a847b..9558f48 onto 25a847b (7 commands)                              &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#                                                                                &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# Commands:                                                                      &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# p, pick = use commit                                                           &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# r, reword = use commit, but edit the commit message                            &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# e, edit = use commit, but stop for amending                                    &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# s, squash = use commit, but meld into previous commit                          &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# f, fixup = like &quot;squash&quot;, but discard this commit's log message                &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# x, exec = run command (the rest of the line) using shell                       &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# d, drop = remove commit                                                        &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#                                                                                &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# These lines can be re-ordered; they are executed from top to bottom.           &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#                                                                                &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# If you remove a line here THAT COMMIT WILL BE LOST.                            &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#                                                                                &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# However, if you remove everything, the rebase will be aborted.                 &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#                                                                                &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# Note that empty commits are commented out&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;As you can see, Git know to reorder your commits so that the fixup commit will be below the one that needs to be fixup-ed. If you check it
+  and everything’s good, you can save the file and Git will apply the change. This process can save you a lot of time!!&lt;/p&gt;
+
+&lt;p&gt;Through this tutorial, I hope it will help you do your work faster. If you’d like more useful tips I learn at work, let me know by sending me an email :)&lt;/p&gt;</content><author><name></name></author><category term="programming" /><category term="educated" /><category term="review" /><summary type="html">Git is a popular version control software used by a lot of tech companies (Yes, there are still companies using SVN). If you don’t know Git, here’s a quick tutorial to get started.</summary></entry><entry><title type="html">Educated</title><link href="http://localhost:4000/jekyll/update/2020/11/23/educated.html" rel="alternate" type="text/html" title="Educated" /><published>2020-11-23T21:10:19-08:00</published><updated>2020-11-23T21:10:19-08:00</updated><id>http://localhost:4000/jekyll/update/2020/11/23/educated</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/11/23/educated.html">&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/assets/img/Educated_book_cover.png&quot; alt=&quot;Educated by Tara Westover&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When I was young, I remembered my parents told me that I should
 study well in school, or I would end up on the street and sell lottery
